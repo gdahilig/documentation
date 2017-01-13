@@ -39,4 +39,16 @@ Now save the file by pressing **Ctrl+X** then **Y**, then finally press **Enter*
 
 At this point, `wpa-supplicant` will normally notice a change has occurred within a few seconds, and it will try and connect to the network. If it does not, either manually restart the interface with `sudo ifdown wlan0` and `sudo ifup wlan0`, or reboot your Raspberry Pi with `sudo reboot`.   
 
-You can verify if it has successfully connected using `ifconfig wlan0`. If the `inet addr` field has an address beside it, the Pi has connected to the network. If not, check your password and ESSID are correct.   
+You can verify if it has successfully connected using `ifconfig wlan0`
+'''
+pi@octopi:~ $ ifconfig wlan0
+wlan0     Link encap:Ethernet  HWaddr b8:27:eb:38:b2:4e  
+          inet addr:192.168.1.30  Bcast:192.168.1.255  Mask:255.255.255.0
+          inet6 addr: fe80::e799:573:4cc4:b46c/64 Scope:Link
+          UP BROADCAST RUNNING MULTICAST  MTU:1500  Metric:1
+          RX packets:457323 errors:0 dropped:7023 overruns:0 frame:0
+          TX packets:2808984 errors:0 dropped:0 overruns:0 carrier:0
+          collisions:0 txqueuelen:1000 
+          RX bytes:47953104 (45.7 MiB)  TX bytes:4245918822 (3.9 GiB)
+'''
+If the `inet addr` field has an address beside it (i.e. '192.168.1.3'), the Pi has connected to the network. If not, check your password and ESSID are correct.   
